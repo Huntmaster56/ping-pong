@@ -24,6 +24,8 @@ Ball creatBall(float x, float y, float size, unsigned int color)
 	b.size = size;
 	b.color = color;
 
+	b.velx = 8;
+	b.vely = 8;
 
 	return b;
 }
@@ -32,6 +34,14 @@ void drawBall(const Ball &b)
 {
 	sfw::drawCircle(b.x, b.y, b.size, 12, b.color);
 }
+
+struct Paddle
+{
+	float x = 0, y = 0, size = 0;
+	char up = 0, down = 0;
+	unsigned int color = 0;
+
+};
 
 
 void updateBall(Ball &b, Paddle &p1, Paddle &p2)
@@ -82,13 +92,7 @@ void updateBall(Ball &b, Paddle &p1, Paddle &p2)
 }
 
 
-struct Paddle
-{
-	float x = 0, y = 0, size = 0;
-	char up = 0, down = 0;
-	unsigned int color= 0;
-	
-};
+
 
 
 Paddle createPaddle(float x, float y, float size, char up, char down, unsigned int color)
