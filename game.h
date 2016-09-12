@@ -14,11 +14,6 @@ struct Ball
 	float freezeTimer = 2;
 };
 
-float randRange(int start, int end)
-{
-	srand(time(0));
-	return rand() % (end - start + 1) + start;
-}
 
 Ball creatBall(float x, float y, float size, unsigned int color)
 {
@@ -28,8 +23,6 @@ Ball creatBall(float x, float y, float size, unsigned int color)
 	b.y = y;
 	b.size = size;
 	b.color = color;
-	b.velx = randRange(5, 10);
-	b.vely = randRange(5, 10);
 
 
 	return b;
@@ -43,23 +36,6 @@ void drawBall(const Ball &b)
 
 void updateBall(Ball &b, Paddle &p1, Paddle &p2)
 {
-	//b.freezeTimer -= sfw::getDeltaTime();
-	//if (b.freezeTimer > 0) return;
-
-	//if (b.x < p1.x && b.y > p2.y && b.y < (p1.y + p1.size))
-	//{
-	//	b.velx *= -1;
-	//	b.vely += randRange(-3, 3);
-	//	b.x = p1.x;
-	//}
-
-	//if (b.x > p2.x && b.y > p1.y && b.y < (p2.y + p2.size))
-	//{
-	//	b.velx *= -1;
-	//	b.vely += randRange(-3, 3);
-	//	b.x = p2.x;
-	//}
-
 
 
 
@@ -81,7 +57,6 @@ void updateBall(Ball &b, Paddle &p1, Paddle &p2)
 	{
 		//p2.score++;
 		//b.freezeTimer = 2;
-
 		//printf("%d to %d \n", p1.score, p2.score);
 		//b.x = 770;
 		//b.y = 300;
