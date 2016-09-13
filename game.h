@@ -40,44 +40,20 @@ struct Paddle
 	float x = 0, y = 0, size = 0;
 	char up = 0, down = 0;
 	unsigned int color = 0;
-
+	int score = 0;
 };
 
 
 void updateBall(Ball &b, Paddle &p1, Paddle &p2)
 {
-
-
-
 	if (b.x < 0)
 	{
-		//p1.score++;
-		//b.freezeTimer = 2;
-		//
-		//printf("%d to %d \n", p1.score, p2.score);
-		//b.x = 30;
-		//b.y = 300;
-		
-		
 		b.velx *= -1;
 	}
 
-
 	if (b.x > 800)
 	{
-		//p2.score++;
-		//b.freezeTimer = 2;
-		//printf("%d to %d \n", p1.score, p2.score);
-		//b.x = 770;
-		//b.y = 300;
-		//b.velx *= -1;
-
-
-
-
 		b.velx *= -1;
-
-
 	}
 	if (b.y < 0)
 		b.vely *= -1;
@@ -87,25 +63,22 @@ void updateBall(Ball &b, Paddle &p1, Paddle &p2)
 
 	b.x += b.velx;
 	b.y += b.vely;
-
-
 }
 
 
 
 
 
-Paddle createPaddle(float x, float y, float size, char up, char down, unsigned int color)
+Paddle createPaddle(float x, float y, float size, char up, char down, unsigned int color, int score)
 {
 	Paddle p;
 	p.x = x;
 	p.y = y;
 	p.size = size;
-
 	p.up = up;
 	p.down = down;
-
 	p.color = color;
+	p.score= score;
 
 	return p;
 }

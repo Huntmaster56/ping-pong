@@ -19,11 +19,11 @@ void main()
 
 	sfw::setBackgroundColor(BLACK);
 
-//	bool gameOver = false;
+	bool gameOver = false;
 	while (sfw::stepContext())
 	{
 
-//		if (!gameOver)
+		if (!gameOver)
 		{
 			updateBall(b,p1,p2);
 			updatePaddle(p1);
@@ -31,8 +31,11 @@ void main()
 
 			drawBall(b);
 
-			//drawScore(d, p1.score, p2.score);
 
+
+
+
+			//drawScore(d, p1.score, p2.score);
 			//if (p1.score >= 10)
 			//{
 			//	gameOver = true;
@@ -44,6 +47,19 @@ void main()
 			//	drawWin2(d);
 			//}
 		}
+		if (p1.score >= 5)
+		{
+			gameOver = true;
+			win(d);
+		}
+		if (p2.score >= 5)
+		{
+			gameOver = true;
+			win2(d);
+		}
+
+
+
 	}
 
 	sfw::termContext();
