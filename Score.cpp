@@ -14,13 +14,13 @@ void drawScore(unsigned font, int score1, int score2)
 	drawString(font, buffer, 100, 500, 20, 20);
 }
 
-void win(unsigned font)
+void drawWin(unsigned font)
 {
-	drawString(font, "Game over Player 1 wins", 300, 500, 10, 10);
+	drawString(font, "Game over Player 1 wins", 150, 500, 25, 25);
 }
 
-void win2(unsigned font)
+void drawWin2(unsigned font)
 {
-	drawString(font, "Game over Player 2 wins", 300, 500, 10, 10);
+	drawString(font, "Game over Player 2 wins", 150, 500, 25, 25);
 }
 

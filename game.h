@@ -7,97 +7,97 @@
 
 //void creatPaddle(float &acc, float &acc2)
 
-struct Ball
-{
-	float x = 300, y = 400, size = 0, velx = 0, vely = 0;
-	unsigned int color = 0;
-	float freezeTimer = 2;
-};
+//struct Ball
+//{
+//	float x = 300, y = 400, size = 0, velx = 0, vely = 0;
+//	unsigned int color = 0;
+//	float freezeTimer = 2;
+//};
 
 
-Ball creatBall(float x, float y, float size, unsigned int color)
-{
+//Ball creatBall(float x, float y, float size, unsigned int color)
+//{
+//
+//	Ball b;
+//	b.x = x;
+//	b.y = y;
+//	b.size = size;
+//	b.color = color;
+//
+//	b.velx = 8;
+//	b.vely = 8;
+//
+//	return b;
+//}
+//
+//void drawBall(const Ball &b)
+//{
+//	sfw::drawCircle(b.x, b.y, b.size, 12, b.color);
+//}
 
-	Ball b;
-	b.x = x;
-	b.y = y;
-	b.size = size;
-	b.color = color;
-
-	b.velx = 8;
-	b.vely = 8;
-
-	return b;
-}
-
-void drawBall(const Ball &b)
-{
-	sfw::drawCircle(b.x, b.y, b.size, 12, b.color);
-}
-
-struct Paddle
-{
-	float x = 0, y = 0, size = 0;
-	char up = 0, down = 0;
-	unsigned int color = 0;
-	int score = 0;
-};
-
-
-void updateBall(Ball &b, Paddle &p1, Paddle &p2)
-{
-	if (b.x < 0)
-	{
-		b.velx *= -1;
-	}
-
-	if (b.x > 800)
-	{
-		b.velx *= -1;
-	}
-	if (b.y < 0)
-		b.vely *= -1;
-
-	if (b.y > 600)
-		b.vely *= -1;
-
-	b.x += b.velx;
-	b.y += b.vely;
-}
+//struct Paddle
+//{
+//	float x = 0, y = 0, size = 0;
+//	char up = 0, down = 0;
+//	unsigned int color = 0;
+//	int score = 0;
+//};
 
 
+//void updateBall(Ball &b, Paddle &p1, Paddle &p2)
+//{
+//	if (b.x < 0)
+//	{
+//		b.velx *= -1;
+//	}
+//
+//	if (b.x > 800)
+//	{
+//		b.velx *= -1;
+//	}
+//	if (b.y < 0)
+//		b.vely *= -1;
+//
+//	if (b.y > 600)
+//		b.vely *= -1;
+//
+//	b.x += b.velx;
+//	b.y += b.vely;
+//}
+//
+//
 
 
 
-Paddle createPaddle(float x, float y, float size, char up, char down, unsigned int color, int score)
-{
-	Paddle p;
-	p.x = x;
-	p.y = y;
-	p.size = size;
-	p.up = up;
-	p.down = down;
-	p.color = color;
-	p.score= score;
-
-	return p;
-}
-
-
-void updatePaddle(Paddle &p)
-{
-	sfw::drawLine(p.x, p.y, p.x, p.y + p.size, p.color);
-
-	if (sfw::getKey(p.up))
-		p.y += 10;
-
-	if (sfw::getKey(p.down))
-		p.y -= 10;
-
-
-	if (p.y < 0) p.y = 0;
-	if (p.y > 500) p.y = 500;
-}
+//Paddle createPaddle(float x, float y, float size, char up, char down, unsigned int color, int score)
+//{
+//	Paddle p;
+//	p.x = x;
+//	p.y = y;
+//	p.size = size;
+//	p.up = up;
+//	p.down = down;
+//	p.color = color;
+//	p.score= score;
+//
+//	return p;
+//}
+//
+//
+//void updatePaddle(Paddle &p)
+//{
+//	sfw::drawLine(p.x, p.y, p.x, p.y + p.size, p.color);
+//
+//	if (sfw::getKey(p.up))
+//		p.y += 10;
+//
+//	if (sfw::getKey(p.down))
+//		p.y -= 10;
+//
+//
+//	if (p.y < 0) p.y = 0;
+//	if (p.y > 500) p.y = 500;
+//}
 
 //void drawScore(unsigned font, int p1score, int p2score)
 //{
@@ -109,19 +109,19 @@ void updatePaddle(Paddle &p)
 //	sfw::drawString(font, buffer, 100, 600, 40, 40);
 //}
 
-void drawWin(unsigned font)
-{
-
-	sfw::drawString(font, "Game over player 2 wins", 160, 600, 20, 20);
-
-
-}
-
-void drawWin2(unsigned font)
-{
-
-	sfw::drawString(font, "Game over player 1 wins", 160, 600, 20, 20);
-
-
-}
-
+//void drawWin(unsigned font)
+//{
+//
+//	sfw::drawString(font, "Game over player 2 wins", 160, 600, 20, 20);
+//
+//
+//}
+//
+//void drawWin2(unsigned font)
+//{
+//
+//	sfw::drawString(font, "Game over player 1 wins", 160, 600, 20, 20);
+//
+//
+//}
+//
