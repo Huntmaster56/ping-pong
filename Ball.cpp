@@ -6,17 +6,17 @@
 #include <math.h>
 using namespace sfw;
 
-void Ball::creatBall(float x, float y, float size, unsigned int color,float a_radius)
+void Ball::creatBall(float a_x, float a_y, float a_size, unsigned int a_color,float a_radius)
 {
 
 	Ball b;
-	x = x;
-	y = y;
-	size = size;
-	color = color;
+	x = a_x;
+	y = a_y;
+	size = a_size;
+	color = a_color;
 	radius = a_radius;
-	velx = 8;
-	vely = 8;
+	velx = 5;
+	vely = 5;
 }
 
 void Ball::drawBall()
@@ -41,15 +41,15 @@ void Ball::updateBall(Paddle &p1, Paddle &p2)
 	if (y > 600)
 		vely *= -1;
 
-	if ((x < p1.x) && y > p1.y && y < (p1.y + p1.size))
+	if ((x < x) && y > y && y < (y + size))
 	{
 		velx *= -1;
-		x = p1.x + radius;
+		x = x + radius;
 	}
-	if ((x > p2.x) && y > p2.y && y < (p2.y + p2.size))
+	if ((x > x) && y > y && y < (y + size))
 	{
 		velx *= -1;
-		x = p2.x - radius;
+		x = x - radius;
 	}
 	if (x < 0)
 	{

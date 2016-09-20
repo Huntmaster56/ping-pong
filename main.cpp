@@ -1,64 +1,70 @@
-
 #include "sfwdraw.h"
-#include "game.h"
 #include "ball.h"
 #include "paddle.h"
 #include "score.h"
-
+#include "gameState.h"
+#include "constdecl.h"
+#include "splash.h"
+#include "Depart.h"
+#include "Option.h"
 
 void main()
 {
-	sfw::initContext(800, 600, "moving ball game");
-	int d = sfw::loadTextureMap("./res/fontmap.png", 16, 16);
+//	sfw::initContext(800, 600, "moving ball game");
+	unsigned font = loadTextureMap("./res/fontmap.png", 16, 16);
 
-	float acc = 10;
-	float acc2 = 10;
 
-	Paddle p1 = createPaddle(20, 250, 100, 'W', 'S', BLUE, 0),
-		   p2 = createPaddle(780, 250, 100, 'I', 'K', RED, 0);
 
-	Ball b = creatBall(400, 600 / 2, 20, GREEN, 20);
-
+	
 	sfw::setBackgroundColor(BLACK);
 
-	bool gameOver = false;
-	while (sfw::stepContext())
+	GameState gs;
+	Splash splash;
+	Depart depart;
+	Option option;
+	splash.init(font);
+	depart.init(font);
+	option.init(font);
+	APP_STATE state = ENTER_SPLASH;
+
+	while (stepContext())
 	{
-
-		if (!gameOver)
+		switch (state)
 		{
-			updateBall(b,p1,p2);
-			updatePaddle(p1);
-			updatePaddle(p2);
+		case ENTER_SPLASH:
+			splash.play();
+		case SPLASH:
+			splash.step();
+			splash.draw();
+			state = splash.next();
+			break;
+		case ENTER_DEPART:
+			depart.play();
+		case DEPART:
+			depart.step();
+			depart.draw();
+			state = depart.next();
+			break;
 
-			drawBall(b);
+		case ENTER_OPTION:
+			option.play();
+		case OPTION:
+			option.step();
+			option.draw();
+			state = option.next();
+			break;
 
-			drawScore(d, p1.score, p2.score);
-			if (p1.score >= 10)
-			{
-				gameOver = true;
-				drawWin(d);
-			}
-			if (p2.score >= 10)
-			{
-				gameOver = true;
-				drawWin2(d);
-			}
+		case ENTER_GAMESTATE:
+			gs.create(loadTextureMap("./res/tonc_font.png", 16, 6), loadTextureMap("./res/fontmap.png", 16, 16), loadTextureMap("./res/bkgrnd.jpg"));
+		case GAMESTATE:
+			gs.draw();
+			gs.update();
+			state = gs.next();
+			break;
 		}
-		if (p1.score >= 5)
-		{
-			gameOver = true;
-			drawWin(d);
-		}
-		if (p2.score >= 5)
-		{
-			gameOver = true;
-			drawWin2(d);
-		}
-
 
 
 	}
 
-	sfw::termContext();
-	
+	termContext();
+}
