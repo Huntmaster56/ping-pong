@@ -6,15 +6,12 @@
 #include <random>
 
 //void creatPaddle(float &acc, float &acc2)
-
 //struct Ball
 //{
 //	float x = 300, y = 400, size = 0, velx = 0, vely = 0;
 //	unsigned int color = 0;
 //	float freezeTimer = 2;
 //};
-
-
 //Ball creatBall(float x, float y, float size, unsigned int color)
 //{
 //
@@ -34,7 +31,6 @@
 //{
 //	sfw::drawCircle(b.x, b.y, b.size, 12, b.color);
 //}
-
 //struct Paddle
 //{
 //	float x = 0, y = 0, size = 0;
@@ -42,8 +38,6 @@
 //	unsigned int color = 0;
 //	int score = 0;
 //};
-
-
 //void updateBall(Ball &b, Paddle &p1, Paddle &p2)
 //{
 //	if (b.x < 0)
@@ -66,9 +60,6 @@
 //}
 //
 //
-
-
-
 //Paddle createPaddle(float x, float y, float size, char up, char down, unsigned int color, int score)
 //{
 //	Paddle p;
@@ -98,7 +89,6 @@
 //	if (p.y < 0) p.y = 0;
 //	if (p.y > 500) p.y = 500;
 //}
-
 //void drawScore(unsigned font, int p1score, int p2score)
 //{
 //	char buffer[64] = { 0 };
@@ -108,7 +98,6 @@
 //	sprintf_s(buffer, "%d", p2score);
 //	sfw::drawString(font, buffer, 100, 600, 40, 40);
 //}
-
 //void drawWin(unsigned font)
 //{
 //

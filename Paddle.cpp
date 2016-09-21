@@ -9,16 +9,13 @@ using namespace sfw;
 
 void Paddle::createPaddle(float a_x, float a_y, float a_size, char a_up, char a_down, unsigned int a_color, int a_score)
 {
-	Paddle p;
-	p.x = x;
-	p.y = y;
-	p.size = size;
-	p.up = up;
-	p.down = down;
-	p.color = color;
-	p.score = score;
-
-
+	x = a_x;
+	y = a_y;
+	size = a_size;
+	up = a_up;
+	down = a_down;
+	color = a_color;
+	score = a_score;
 }
 
 
@@ -26,15 +23,14 @@ void Paddle::updatePaddle()
 {
 	//sfw::drawLine(p.x, p.y, p.x, p.y + p.size, p.color);
 
-	if (sfw::getKey(up))
+	if (sfw::getKey(up) && y < 500)
 		y += 12;
 
-	if (sfw::getKey(down))
+	if (sfw::getKey(down) && y > 0)
 		y -= 12;
 
 
-	if (y < 0) y = 0;
-	if (y > 500) y = 500;
+	
 }
 
 void Paddle::drawPaddle()

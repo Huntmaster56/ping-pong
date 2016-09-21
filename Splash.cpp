@@ -9,15 +9,15 @@ void Splash::init(int a_font)
 
 }
 
-void Splash::play() { timer = 3.f; }
+void Splash::play() { timer = 2.f; }
 
 void Splash::draw()
 {
 	char buffer[64];
 	sprintf_s(buffer, "Splash Time: %f", timer);
 	setBackgroundColor(BLACK);
-	drawString(font, "Splash State", 100, 100, 20, 20);
-	drawLine(100, 80, 100 + 500 * (timer / 3.f), 80);
+	drawString(font, "Welcome to Ping Pong", 100, 400, 30, 30);
+	drawLine(100, 80, 100 + 300 * (timer / 2.f), 80);
 }
 
 void Splash::step() { timer -= getDeltaTime(); }

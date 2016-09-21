@@ -8,7 +8,6 @@ using namespace sfw;
 
 void Ball::creatBall(float a_x, float a_y, float a_size, unsigned int a_color,float a_radius)
 {
-
 	Ball b;
 	x = a_x;
 	y = a_y;
@@ -41,16 +40,22 @@ void Ball::updateBall(Paddle &p1, Paddle &p2)
 	if (y > 600)
 		vely *= -1;
 
-	if ((x < x) && y > y && y < (y + size))
+	if ((x - radius < p1.x)				&&		// lef of ball < x	 of paddle 
+		 y - radius < (p1.y + p1.size)	&&		// bot of ball < top of paddle
+		 y + radius >  p1.y)								// top of ball > bot of paddle
 	{
 		velx *= -1;
-		x = x + radius;
+		x = p1.x + radius;
 	}
-	if ((x > x) && y > y && y < (y + size))
+
+	if ((x + radius > p2.x) &&
+		y - radius  < (p2.y + p2.size) &&
+		y + radius  > p2.y)
 	{
 		velx *= -1;
-		x = x - radius;
+		x = p2.x - radius;
 	}
+
 	if (x < 0)
 	{
 		p2.score++;

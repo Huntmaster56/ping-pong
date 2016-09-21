@@ -13,10 +13,15 @@ private:
 	unsigned f;
 	unsigned d;
 	unsigned g;
+
 	Paddle p1;
 	Paddle p2;
 	Ball b1;
-	bool gameover;
+	int nActiveBalls = 1;
+	Ball b[5];
+
+	bool gameOver;
+	float timer;
 
 public:
 	void create(unsigned f, unsigned d, unsigned g);
